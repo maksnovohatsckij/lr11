@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row my-2">
+    <div class="col-lg-3 col-md-6 p-1">
+      <input type="text" class="form-control" placeholder="Card name" id="Name" #Name>
+    </div>
+
+    <div class="col-lg-3 col-md-6 p-1">
+      <select class="custom-select" id="Status" #Status>
+        <option value="1">Онлайн</option>
+        <option value="">Офлайн</option>
+      </select>
+    </div>
+
+    <div class="col-lg-3 col-md-6 p-1">
+      <button class="btn btn-success btn-block" (click)="addCard(Name.value||undefined,Status.value)">Add
+        card</button>
+    </div>
+
+    <div class="col-lg-3 col-md-6 p-1">
+      <button class="btn btn-danger btn-block" (click)="deleteAll()">Delete All</button>
+    </div>
+
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="p-1 col-lg-3 col-md-6" *ngFor="let card of Cards">
+      <div class="card" style="color: white;" [style.background-color]="card.color">
+        <div class="card-body">
+          <h5 class="card-title">Card Id: {{card.id}}</h5>
+          <p class="card-text">Name: {{card.name}}</p>
+          <button class="btn btn-primary p-0" style="width: 1.8em;height: 1.8em;" (click)="delete(card.id)">х</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
