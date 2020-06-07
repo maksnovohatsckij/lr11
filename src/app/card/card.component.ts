@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Card } from '../models/card.model';
 
 @Component({
   selector: 'app-card',
@@ -30,20 +31,4 @@ export class CardComponent implements OnInit {
   addCard(name: string = 'Cardname', stat: boolean = Boolean(Math.round(Math.random()))) {
     this.Cards.push(new Card(this.cardId++, Boolean(stat), name));
   }
-
-}
-
-class Card {
-  id: number;
-  status: boolean;
-  name: string;
-  color: string;
-
-  constructor(id: number, status: boolean, name: string) {
-    this.id = id;
-    this.status = status;
-    this.name = name;
-    this.color = status ? 'green' : 'red';
-  }
-
 }
