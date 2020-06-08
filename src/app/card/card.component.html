@@ -25,12 +25,12 @@
 
 <div class="container">
   <div class="row">
-    <div class="p-1 col-lg-3 col-md-6" *ngFor="let card of Cards">
+    <div class="p-1 col-lg-3 col-md-6" *ngFor="let card of Cards; let id = index">
       <div class="card" style="color: white;" [style.background-color]="card.color">
         <div class="card-body">
-          <h5 class="card-title">Card Id: {{card.id}}</h5>
+          <h5 class="card-title">Card Id: {{id+1}}</h5>
           <p class="card-text">Name: {{card.name}}</p>
-          <button class="btn btn-primary p-0" style="width: 1.8em;height: 1.8em;" (click)="delete(card.id)">х</button>
+          <button class="btn btn-primary p-0" style="width: 1.8em;height: 1.8em;" (click)="delete(id)">х</button>
         </div>
       </div>
     </div>
